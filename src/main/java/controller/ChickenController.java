@@ -25,8 +25,8 @@ public class ChickenController {
     private void work() {
         Tables tables = Tables.from(TableRepository.tables());
         Menus menus = Menus.from(MenuRepository.menus());
-
         FunctionType functionType;
+
         do {
             OutputView.printMainScreen();
             functionType = FunctionType.find(InputView.inputFunctionNumber());
@@ -35,23 +35,24 @@ public class ChickenController {
     }
 
     private void function(FunctionType functionType, Tables tables, Menus menus) {
+        OutputView.printTables(tables.getTables());
+        Table table = tables.findTableByNumber(InputView.inputTableNumber());
+
         if (functionType == FunctionType.ONE) {
-            addOrder(tables, menus);
+            addOrder(table, menus);
         }
         if (functionType == FunctionType.TWO) {
-            countOrder(tables, menus);
+            countOrder(table, menus);
         }
     }
 
-    private void addOrder(Tables tables, Menus menus) {
-        OutputView.printTables(tables.getTables());
-        Table table = tables.findTableByNumber(InputView.inputTableNumber());
+    private void addOrder(Table table, Menus menus) {
         OutputView.printMenus(menus.getMenus());
         Menu menu = menus.findMenuByNumber(InputView.inputMenuNumber());
         table.addOrder(menu, InputView.inputMenuCount());
     }
 
-    private void countOrder(Tables tables, Menus menus) {
+    private void countOrder(Table table, Menus menus) {
 
     }
 }
