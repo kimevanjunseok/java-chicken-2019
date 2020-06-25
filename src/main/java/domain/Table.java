@@ -10,6 +10,7 @@ public class Table {
 
     public Table(final int number) {
         this.number = number;
+        resetOrders();
     }
 
     public boolean isSameNumber(int number) {
@@ -24,6 +25,9 @@ public class Table {
         return MenuRepository.menus().stream()
                 .map(menu -> Order.of(menu, Count.from(0)))
                 .collect(Collectors.toList());
+    }
+
+    public void order(Menu menu, int inputMenuCount) {
     }
 
     @Override
