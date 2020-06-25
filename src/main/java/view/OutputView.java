@@ -18,7 +18,7 @@ public class OutputView {
         System.out.println("3 - 프로그램 종료");
     }
 
-    public static void printTables(final Set<Table> tables) {
+    public static void printTables(final List<Table> tables) {
         System.out.println("## 테이블 목록");
         final int size = tables.size();
         printLine(TOP_LINE, size);
@@ -39,7 +39,7 @@ public class OutputView {
         System.out.println();
     }
 
-    private static void printTableNumbers(final Set<Table> tables) {
+    private static void printTableNumbers(final List<Table> tables) {
         for (final Table table : tables) {
             System.out.printf(TABLE_FORMAT, table);
         }

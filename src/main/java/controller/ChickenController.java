@@ -23,36 +23,34 @@ public class ChickenController {
     }
 
     private void work() {
+        Tables tables = Tables.from(TableRepository.tables());
         Menus menus = Menus.from(MenuRepository.menus());
-        TableOrder tableOrder = TableOrder.from(TableMenuFactory.createTableOrder(
-            TableRepository.tables(),
-            menus.getMenus()
-        ));
+
         FunctionType functionType;
         do {
             OutputView.printMainScreen();
             functionType = FunctionType.find(InputView.inputFunctionNumber());
-            function(functionType, tableOrder, menus);
+            function(functionType, tables, menus);
         } while(functionType.isNotThree());
     }
 
-    private void function(FunctionType functionType, TableOrder tableOrder, Menus menus) {
+    private void function(FunctionType functionType, Tables tables, Menus menus) {
         if (functionType == FunctionType.ONE) {
-            addOrder(tableOrder, menus);
+            addOrder(tables, menus);
         }
         if (functionType == FunctionType.TWO) {
-            countOrder(tableOrder, menus);
+            countOrder(tables, menus);
         }
     }
 
-    private void addOrder(TableOrder tableOrder, Menus menus) {
-        OutputView.printTables(tableOrder.getTables());
-        Table table = tableOrder.findTableByNumber(InputView.inputTableNumber());
+    private void addOrder(Tables tables, Menus menus) {
+        OutputView.printTables(tables.getTables());
+        Table table = tables.findTableByNumber(InputView.inputTableNumber());
         OutputView.printMenus(menus.getMenus());
         Menu menu = menus.findMenuByNumber(InputView.inputMenuNumber());
     }
 
-    private void countOrder(TableOrder tableOrder, Menus menus) {
+    private void countOrder(Tables tables, Menus menus) {
 
     }
 }
