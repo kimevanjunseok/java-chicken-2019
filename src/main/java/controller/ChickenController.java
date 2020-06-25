@@ -1,5 +1,6 @@
 package controller;
 
+import view.InputView;
 import view.OutputView;
 
 public class ChickenController {
@@ -14,6 +15,6 @@ public class ChickenController {
 
     public void execute() {
         OutputView.printMainScreen();
-
+        int number = InputView.inputFunctionNumber();
     }
 }
