@@ -1,7 +1,11 @@
 package controller;
 
+import domain.Table;
+import domain.TableRepository;
 import view.InputView;
 import view.OutputView;
+
+import java.util.List;
 
 public class ChickenController {
 
@@ -16,5 +20,8 @@ public class ChickenController {
     public void execute() {
         OutputView.printMainScreen();
         int number = InputView.inputFunctionNumber();
+
+        List<Table> tables = TableRepository.tables();
+        OutputView.printTables(tables);
     }
 }
