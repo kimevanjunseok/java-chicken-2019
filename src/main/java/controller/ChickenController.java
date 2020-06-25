@@ -1,8 +1,10 @@
 package controller;
 
-import domain.FunctionType;
+import domain.*;
 import view.InputView;
 import view.OutputView;
+
+import java.util.List;
 
 public class ChickenController {
 
@@ -15,6 +17,8 @@ public class ChickenController {
     }
 
     public void execute() {
+        Tables tables = Tables.from(TableRepository.tables());
+        Menus menus = Menus.from(MenuRepository.menus());
         FunctionType functionType;
         do {
             OutputView.printMainScreen();
