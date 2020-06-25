@@ -7,13 +7,13 @@ import java.util.Map;
 
 public class TableOrder {
 
-    private final Map<Table, MenuOrder> tableOrders;
+    private final Map<Table, Orders> tableOrders;
 
-    private TableOrder(Map<Table, MenuOrder> tableOrders) {
+    private TableOrder(Map<Table, Orders> tableOrders) {
         this.tableOrders = new HashMap<>(tableOrders);
     }
 
-    public static TableOrder from(Map<Table, MenuOrder> tableOrders) {
+    public static TableOrder from(Map<Table, Orders> tableOrders) {
         return new TableOrder(tableOrders);
     }
 

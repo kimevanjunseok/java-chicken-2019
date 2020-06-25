@@ -1,25 +1,23 @@
 package domain;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class TableMenuFactory {
 
-    public static Map<Table, MenuOrder> createTableOrder(List<Table> tables, List<Menu> menus) {
-        Map<Table, MenuOrder> orders = new HashMap<>();
+    private static final int INITIAL_COUNT = 0;
+
+    public static Map<Table, Orders> createTableOrder(List<Table> tables, List<Menu> menus) {
+        Map<Table, Orders> tableOrder = new HashMap<>();
         for (Table table : tables) {
-            Map<Menu, Count> menuCounts = createMenuOrder(menus);
-            orders.put(table, MenuOrder.from(menuCounts));
+            tableOrder.put(table, Orders.from(createOrders(menus)));
         }
-        return orders;
+        return tableOrder;
     }
 
-    private static Map<Menu, Count> createMenuOrder(List<Menu> menus) {
-        Map<Menu, Count> menuCounts = new HashMap<>();
-        for (Menu menu : menus) {
-            menuCounts.put(menu, Count.from(0));
-        }
-        return menuCounts;
+    private static List<Order> createOrders(List<Menu> menus) {
+        return Collections.unmodifiableList(menus.stream()
+                .map(menu -> Order.of(menu, Count.from(INITIAL_COUNT)))
+                .collect(Collectors.toList()));
     }
 }

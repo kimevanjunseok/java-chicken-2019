@@ -37,21 +37,21 @@ public class ChickenController {
 
     private void function(FunctionType functionType, TableOrder tableOrder) {
         if (functionType == FunctionType.ONE) {
-            add(tableOrder);
+            addOrder(tableOrder);
         }
         if (functionType == FunctionType.TWO) {
-            count(tableOrder);
+            countOrder(tableOrder);
         }
     }
 
-    private void add(TableOrder tableOrder) {
+    private void addOrder(TableOrder tableOrder) {
         OutputView.printTables(tableOrder.getTables());
         Table table = tableOrder.findTableByNumber(InputView.inputTableNumber());
         OutputView.printMenus(MenuRepository.menus());
 
     }
 
-    private void count(TableOrder tableOrder) {
+    private void countOrder(TableOrder tableOrder) {
 
     }
 }
