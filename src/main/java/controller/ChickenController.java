@@ -47,6 +47,8 @@ public class ChickenController {
     private void add(TableOrder tableOrder) {
         OutputView.printTables(tableOrder.getTables());
         Table table = tableOrder.findTableByNumber(InputView.inputTableNumber());
+        OutputView.printMenus(MenuRepository.menus());
+
     }
 
     private void count(TableOrder tableOrder) {
