@@ -18,7 +18,7 @@ public class ChickenController {
         try {
             work();
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            System.err.println(e.toString());
         }
     }
 
@@ -45,7 +45,8 @@ public class ChickenController {
     }
 
     private void add(TableOrder tableOrder) {
-        Table table = tableOrder.findTable(InputView.inputTableNumber());
+        OutputView.printTables(tableOrder.getTables());
+        Table table = tableOrder.findTableByNumber(InputView.inputTableNumber());
     }
 
     private void count(TableOrder tableOrder) {

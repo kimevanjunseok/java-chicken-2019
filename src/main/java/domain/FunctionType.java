@@ -18,7 +18,7 @@ public enum FunctionType {
         return Arrays.stream(FunctionType.values())
                 .filter(type -> type.isSameNumber(inputNumber))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("1 ~ 3사이의 숫자만 가능합니다."));
+                .orElseThrow(() -> new IllegalArgumentException("1 ~ 3사이의 숫자만 가능합니다. 입력 값: " + inputNumber));
     }
 
     private boolean isSameNumber(int inputNumber) {

@@ -22,6 +22,6 @@ public class TableOrderTest {
     @Test
     void findTable() {
         Table table = new Table(3);
-        assertThat(tableOrder.findTable(3)).isEqualTo(table);
+        assertThat(tableOrder.findTableByNumber(3)).isEqualTo(table);
     }
 }
