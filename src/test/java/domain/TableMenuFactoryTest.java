@@ -12,7 +12,7 @@ public class TableMenuFactoryTest {
     void create() {
         List<Table> tables = TableRepository.tables();
         List<Menu> menus = MenuRepository.menus();
-        Map<Table, Order> cache = TableMenuFactory.createTableOrder(tables, menus);
+        Map<Table, Orders> cache = TableMenuFactory.createTableOrder(tables, menus);
 
         assertThat(cache).isNotEmpty();
         assertThat(cache.entrySet()).hasSize(6);

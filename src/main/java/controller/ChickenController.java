@@ -23,35 +23,36 @@ public class ChickenController {
     }
 
     private void work() {
+        Menus menus = Menus.from(MenuRepository.menus());
         TableOrder tableOrder = TableOrder.from(TableMenuFactory.createTableOrder(
             TableRepository.tables(),
-            MenuRepository.menus()
+            menus.getMenus()
         ));
         FunctionType functionType;
         do {
             OutputView.printMainScreen();
             functionType = FunctionType.find(InputView.inputFunctionNumber());
-            function(functionType, tableOrder);
+            function(functionType, tableOrder, menus);
         } while(functionType.isNotThree());
     }
 
-    private void function(FunctionType functionType, TableOrder tableOrder) {
+    private void function(FunctionType functionType, TableOrder tableOrder, Menus menus) {
         if (functionType == FunctionType.ONE) {
-            addOrder(tableOrder);
+            addOrder(tableOrder, menus);
         }
         if (functionType == FunctionType.TWO) {
-            countOrder(tableOrder);
+            countOrder(tableOrder, menus);
         }
     }
 
-    private void addOrder(TableOrder tableOrder) {
+    private void addOrder(TableOrder tableOrder, Menus menus) {
         OutputView.printTables(tableOrder.getTables());
         Table table = tableOrder.findTableByNumber(InputView.inputTableNumber());
-        OutputView.printMenus(MenuRepository.menus());
-
+        OutputView.printMenus(menus.getMenus());
+        Menu menu = menus.findMenuByNumber(InputView.inputMenuNumber());
     }
 
-    private void countOrder(TableOrder tableOrder) {
+    private void countOrder(TableOrder tableOrder, Menus menus) {
 
     }
 }

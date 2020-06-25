@@ -1,9 +1,6 @@
 package domain;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class TableOrder {
 
@@ -24,7 +21,7 @@ public class TableOrder {
                 .orElseThrow(() -> new IllegalArgumentException("해당 테이블 번호는 없습니다. 입력 값: " + tableNumber));
     }
 
-    public List<Table> getTables() {
-        return new ArrayList<>(tableOrders.keySet());
+    public Set<Table> getTables() {
+        return Collections.unmodifiableSet(tableOrders.keySet());
     }
 }
