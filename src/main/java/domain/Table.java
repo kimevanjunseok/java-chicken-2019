@@ -13,10 +13,6 @@ public class Table {
         resetOrders();
     }
 
-    public boolean isSameNumber(int number) {
-        return this.number == number;
-    }
-
     public void resetOrders() {
         this.orders = Orders.from(initOrders());
     }
@@ -27,7 +23,12 @@ public class Table {
                 .collect(Collectors.toList());
     }
 
-    public void order(Menu menu, int inputMenuCount) {
+    public boolean isSameNumber(int number) {
+        return this.number == number;
+    }
+
+    public Order findOrderByMenu(Menu menu) {
+        return orders.findOrderByMenu(menu);
     }
 
     @Override

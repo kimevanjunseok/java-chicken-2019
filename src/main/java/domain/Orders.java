@@ -14,4 +14,11 @@ public class Orders {
     public static Orders from(List<Order> orders) {
         return new Orders(orders);
     }
+
+    public Order findOrderByMenu(Menu menu) {
+        return orders.stream()
+                .filter(order -> order.isSameMenu(menu))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("찾으시는 메뉴가 없습니다."));
+    }
 }
