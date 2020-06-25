@@ -1,24 +1,34 @@
 package domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Orders {
 
-    private final List<Order> orders;
+    private Map<Menu, Count> orders;
 
-    private Orders(List<Order> orders) {
-        this.orders = new ArrayList<>(orders);
+    private Orders(Map<Menu, Count> orders) {
+        this.orders = new HashMap<>(orders);
     }
 
-    public static Orders from(List<Order> orders) {
+    public static Orders from(Map<Menu, Count> orders) {
         return new Orders(orders);
     }
 
-    public Order findOrderByMenu(Menu menu) {
-        return orders.stream()
-                .filter(order -> order.isSameMenu(menu))
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("찾으시는 메뉴가 없습니다."));
+    public void reset() {
+        this.orders = new HashMap<>();
+    }
+
+    public boolean hasOrder() {
+        return !orders.isEmpty();
+    }
+
+    public void add(Menu menu, int menuCount) {
+        if (orders.containsKey(menu)) {
+            Count count = orders.get(menu);
+            count.add(menuCount);
+            return ;
+        }
+        orders.put(menu, Count.from(menuCount));
     }
 }

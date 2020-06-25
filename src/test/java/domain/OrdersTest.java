@@ -3,27 +3,38 @@ package domain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.stream.Collectors;
+import java.util.HashMap;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class OrdersTest {
 
     private Orders orders;
+    private Menu menu;
 
     @BeforeEach
     void setUp() {
-        orders = Orders.from(MenuRepository.menus().stream()
-                .map(menu -> Order.of(menu, Count.from(0)))
-                .collect(Collectors.toList()));
+        orders = Orders.from(new HashMap<>());
+        menu = new Menu(2, "양념치킨", Category.CHICKEN, 16_000);
     }
 
     @Test
-    void findOrderByMenu() {
-        Menu menu = new Menu(2, "양념치킨", Category.CHICKEN, 16_000);
-        Order expect = Order.of(menu, Count.from(0));
-        Order actual = orders.findOrderByMenu(menu);
+    void hasOrder_True() {
+        orders.add(menu, 2);
 
-        assertThat(actual).isEqualTo(expect);
+        assertThat(orders.hasOrder()).isTrue();
+    }
+
+    @Test
+    void hasOrder_False() {
+        assertThat(orders.hasOrder()).isFalse();
+    }
+
+    @Test
+    void reset() {
+        orders.add(menu, 2);
+        orders.reset();
+
+        assertThat(orders.hasOrder()).isFalse();
     }
 }
