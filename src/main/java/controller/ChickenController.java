@@ -31,6 +31,24 @@ public class ChickenController {
         do {
             OutputView.printMainScreen();
             functionType = FunctionType.find(InputView.inputFunctionNumber());
+            function(functionType, tableOrder);
         } while(functionType.isNotThree());
+    }
+
+    private void function(FunctionType functionType, TableOrder tableOrder) {
+        if (functionType == FunctionType.ONE) {
+            add(tableOrder);
+        }
+        if (functionType == FunctionType.TWO) {
+            count(tableOrder);
+        }
+    }
+
+    private void add(TableOrder tableOrder) {
+
+    }
+
+    private void count(TableOrder tableOrder) {
+
     }
 }
