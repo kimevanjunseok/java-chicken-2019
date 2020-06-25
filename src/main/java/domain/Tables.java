@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Tables {
@@ -7,7 +8,7 @@ public class Tables {
     private final List<Table> tables;
 
     private Tables(List<Table> tables) {
-        this.tables = tables;
+        this.tables = new ArrayList<>(tables);
     }
 
     public static Tables from(List<Table> tables) {

@@ -20,6 +20,10 @@ public class Order {
         return this.menu.equals(menu);
     }
 
+    public void add(int menuCount) {
+        count.add(menuCount);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

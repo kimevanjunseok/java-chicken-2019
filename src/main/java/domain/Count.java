@@ -14,6 +14,10 @@ public class Count {
         return new Count(count);
     }
 
+    public void add(int menuCount) {
+        count += menuCount;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -25,4 +25,12 @@ public class OrderTest {
         Menu menu = new Menu(2, "양념치킨", Category.CHICKEN, 16_000);
         assertThat(order.isSameMenu(menu)).isFalse();
     }
+
+    @Test
+    void add() {
+        order.add(3);
+        Order expect = Order.of(new Menu(1, "후라이드", Category.CHICKEN, 16_000), Count.from(3));
+
+        assertThat(order).isEqualTo(expect);
+    }
 }
