@@ -45,7 +45,7 @@ public class ChickenController {
     }
 
     private void add(TableOrder tableOrder) {
-
+        Table table = tableOrder.findTable(InputView.inputTableNumber());
     }
 
     private void count(TableOrder tableOrder) {

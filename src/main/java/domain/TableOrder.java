@@ -14,4 +14,11 @@ public class TableOrder {
     public static TableOrder from(Map<Table, MenuOrder> tableOrders) {
         return new TableOrder(tableOrders);
     }
+
+    public Table findTable(int tableNumber) {
+        return tableOrders.keySet().stream()
+                .filter(table -> table.isSameNumber(tableNumber))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(""));
+    }
 }
