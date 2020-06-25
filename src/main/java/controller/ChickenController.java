@@ -1,5 +1,7 @@
 package controller;
 
+import view.OutputView;
+
 public class ChickenController {
 
     private static final ChickenController chickenController = new ChickenController();
@@ -11,6 +13,7 @@ public class ChickenController {
     }
 
     public void execute() {
+        OutputView.printMainScreen();
 
     }
 }
