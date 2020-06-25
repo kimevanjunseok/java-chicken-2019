@@ -4,8 +4,6 @@ import domain.*;
 import view.InputView;
 import view.OutputView;
 
-import java.util.List;
-
 public class ChickenController {
 
     private static final ChickenController chickenController = new ChickenController();
@@ -17,8 +15,18 @@ public class ChickenController {
     }
 
     public void execute() {
-        Tables tables = Tables.from(TableRepository.tables());
-        Menus menus = Menus.from(MenuRepository.menus());
+        try {
+            work();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    private void work() {
+        TableOrder tableOrder = TableOrder.from(TableMenuFactory.createTableOrder(
+            TableRepository.tables(),
+            MenuRepository.menus()
+        ));
         FunctionType functionType;
         do {
             OutputView.printMainScreen();
