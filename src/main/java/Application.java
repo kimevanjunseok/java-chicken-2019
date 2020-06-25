@@ -1,8 +1,5 @@
 import controller.ChickenController;
-import domain.Menu;
-import domain.MenuRepository;
-import domain.Table;
-import domain.TableRepository;
+import domain.*;
 import view.InputView;
 import view.OutputView;
 
@@ -12,6 +9,10 @@ public class Application {
 
     public static void main(String[] args) {
         ChickenController chickenController = ChickenController.getInstance();
+        FunctionNumber functionNumber;
+        do {
+            functionNumber = FunctionNumber.from(InputView.inputFunctionNumber());
+        } while(functionNumber.isNotThree());
         chickenController.execute();
     }
 }
