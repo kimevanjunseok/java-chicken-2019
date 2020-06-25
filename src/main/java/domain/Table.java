@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 public class Table {
     private final int number;
+    private OrderState orderState;
     private Orders orders;
 
     public Table(final int number) {
@@ -14,6 +15,7 @@ public class Table {
     }
 
     public void resetOrders() {
+        this.orderState = OrderState.NOT_ORDER;
         this.orders = Orders.from(initOrders());
     }
 
@@ -27,8 +29,14 @@ public class Table {
         return this.number == number;
     }
 
-    public Order findOrderByMenu(Menu menu) {
-        return orders.findOrderByMenu(menu);
+    public void addOrder(Menu menu, int menuCount) {
+        this.orderState = OrderState.ORDER;
+        Order order = orders.findOrderByMenu(menu);
+        order.add(menuCount);
+    }
+
+    public boolean hasOrder() {
+        return orderState.hasOrder();
     }
 
     @Override

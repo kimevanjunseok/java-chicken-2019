@@ -48,8 +48,7 @@ public class ChickenController {
         Table table = tables.findTableByNumber(InputView.inputTableNumber());
         OutputView.printMenus(menus.getMenus());
         Menu menu = menus.findMenuByNumber(InputView.inputMenuNumber());
-        Order order = table.findOrderByMenu(menu);
-        order.add(InputView.inputMenuCount());
+        table.addOrder(menu, InputView.inputMenuCount());
     }
 
     private void countOrder(Tables tables, Menus menus) {
