@@ -1,9 +1,6 @@
 package domain;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Orders {
 
@@ -45,5 +42,12 @@ public class Orders {
     public int getPrice(Menu menu) {
         int count = getCount(menu);
         return menu.calculatePrice(count);
+    }
+
+    public int calculateTotalPrice() {
+        return getMenus().stream()
+                .map(this::getPrice)
+                .reduce(Integer::sum)
+                .orElseThrow(() -> new IllegalArgumentException(""));
     }
 }

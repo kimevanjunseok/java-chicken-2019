@@ -2,6 +2,7 @@ package domain;
 
 import java.util.HashMap;
 import java.util.Objects;
+import java.util.Optional;
 
 public class Table {
     private final int number;
@@ -26,6 +27,10 @@ public class Table {
 
     public boolean hasOrder() {
         return orders.hasOrder();
+    }
+
+    public int calculateTotalPrice() {
+        return orders.calculateTotalPrice();
     }
 
     public Orders getOrders() {

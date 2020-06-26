@@ -35,29 +35,32 @@ public class ChickenController {
     }
 
     private void function(FunctionType functionType, Tables tables, Menus menus) {
-        OutputView.printTables(tables.getTables());
-        Table table = tables.findTableByNumber(InputView.inputTableNumber());
-
         if (functionType == FunctionType.ONE) {
-            addOrder(table, menus);
+            addOrder(tables, menus);
         }
         if (functionType == FunctionType.TWO) {
-            countOrder(table);
+            countOrder(tables);
         }
     }
 
-    private void addOrder(Table table, Menus menus) {
+    private void addOrder(Tables tables, Menus menus) {
+        OutputView.printTables(tables.getTables());
+        Table table = tables.findTableByNumber(InputView.inputTableNumber());
         OutputView.printMenus(menus.getMenus());
         Menu menu = menus.findMenuByNumber(InputView.inputMenuNumber());
         table.addOrder(menu, InputView.inputMenuCount());
     }
 
-    private void countOrder(Table table) {
+    private void countOrder(Tables tables) {
+        OutputView.printTables(tables.getTables());
+        Table table = tables.findTableByNumber(InputView.inputTableNumber());
         if (!table.hasOrder()) {
             throw new IllegalArgumentException("주문이 없는 테이블입니다.");
         }
         OutputView.printOrderHistory(table.getOrders());
         OutputView.printTablePayment(table);
         PaymentType paymentType = PaymentType.find(InputView.inputPayment());
+        OutputView.printFinalAmount(paymentType.payment(table.calculateTotalPrice()));
+        table.resetOrders();
     }
 }
