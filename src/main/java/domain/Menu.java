@@ -19,6 +19,14 @@ public class Menu {
         return number == menuNumber;
     }
 
+    public int calculatePrice(int count) {
+        return price * count;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

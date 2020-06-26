@@ -31,6 +31,14 @@ public class OrdersTest {
     }
 
     @Test
+    void addCount() {
+        orders.add(menu, 2);
+        orders.add(menu, 3);
+
+        assertThat(orders.getCount(menu)).isEqualTo(5);
+    }
+
+    @Test
     void reset() {
         orders.add(menu, 2);
         orders.reset();

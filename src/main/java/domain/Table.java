@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Table {
     private final int number;
-    private Orders orders;
+    private final Orders orders;
 
     public Table(final int number) {
         this.number = number;
@@ -26,6 +26,10 @@ public class Table {
 
     public boolean hasOrder() {
         return orders.hasOrder();
+    }
+
+    public Orders getOrders() {
+        return orders;
     }
 
     @Override

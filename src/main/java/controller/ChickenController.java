@@ -42,7 +42,7 @@ public class ChickenController {
             addOrder(table, menus);
         }
         if (functionType == FunctionType.TWO) {
-            countOrder(table, menus);
+            countOrder(table);
         }
     }
 
@@ -52,7 +52,10 @@ public class ChickenController {
         table.addOrder(menu, InputView.inputMenuCount());
     }
 
-    private void countOrder(Table table, Menus menus) {
-
+    private void countOrder(Table table) {
+        if (!table.hasOrder()) {
+            throw new IllegalArgumentException("주문이 없는 테이블입니다.");
+        }
+        OutputView.printOrderHistory(table.getOrders());
     }
 }

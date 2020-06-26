@@ -1,6 +1,7 @@
 package view;
 
 import domain.Menu;
+import domain.Orders;
 import domain.Table;
 
 import java.util.List;
@@ -59,5 +60,15 @@ public class OutputView {
             return;
         }
         System.out.print(BOTTOM_LINE);
+    }
+
+    public static void printOrderHistory(Orders orders) {
+        System.out.println("## 주문 내역");
+        System.out.println("메뉴 수량 금액");
+        for (Menu menu : orders.getMenus()) {
+            System.out.print(menu.getName() + " ");
+            System.out.print(orders.getCount(menu) + " ");
+            System.out.println(orders.getPrice(menu));
+        }
     }
 }

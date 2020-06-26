@@ -1,17 +1,19 @@
 package domain;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Orders {
 
-    private Map<Menu, Count> orders;
+    private Map<Menu, Integer> orders;
 
-    private Orders(Map<Menu, Count> orders) {
+    private Orders(Map<Menu, Integer> orders) {
         this.orders = new HashMap<>(orders);
     }
 
-    public static Orders from(Map<Menu, Count> orders) {
+    public static Orders from(Map<Menu, Integer> orders) {
         return new Orders(orders);
     }
 
@@ -25,10 +27,23 @@ public class Orders {
 
     public void add(Menu menu, int menuCount) {
         if (orders.containsKey(menu)) {
-            Count count = orders.get(menu);
-            count.add(menuCount);
+            int count = orders.get(menu);
+            orders.put(menu, count + menuCount);
             return ;
         }
-        orders.put(menu, Count.from(menuCount));
+        orders.put(menu, menuCount);
+    }
+
+    public Set<Menu> getMenus() {
+        return Collections.unmodifiableSet(orders.keySet());
+    }
+
+    public int getCount(Menu menu) {
+        return orders.get(menu);
+    }
+
+    public int getPrice(Menu menu) {
+        int count = getCount(menu);
+        return menu.calculatePrice(count);
     }
 }

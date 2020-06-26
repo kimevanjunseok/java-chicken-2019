@@ -23,6 +23,6 @@ public class Tables {
         return tables.stream()
                 .filter(table -> table.isSameNumber(tableNumber))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException(""));
+                .orElseThrow(() -> new IllegalArgumentException("없는 테이블 번호입니다."));
     }
 }

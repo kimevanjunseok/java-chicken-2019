@@ -1,6 +1,7 @@
 package domain;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -19,5 +20,10 @@ public class MenuTest {
     @CsvSource(value = {"1:true", "2:false"}, delimiter = ':')
     void isSameNumber(int number, boolean expect) {
         assertThat(menu.isSameNumber(number)).isEqualTo(expect);
+    }
+
+    @Test
+    void calculatePrice() {
+        assertThat(menu.calculatePrice(2)).isEqualTo(32_000);
     }
 }
