@@ -16,13 +16,9 @@ public enum FunctionType {
 
     public static FunctionType find(int inputNumber) {
         return Arrays.stream(FunctionType.values())
-                .filter(type -> type.isSameNumber(inputNumber))
+                .filter(type -> type.number == inputNumber)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("1 ~ 3사이의 숫자만 가능합니다. 입력 값: " + inputNumber));
-    }
-
-    private boolean isSameNumber(int inputNumber) {
-        return number == inputNumber;
     }
 
     public boolean isNotThree() {
