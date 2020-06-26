@@ -24,4 +24,9 @@ public class InputView {
         System.out.println("## 메뉴의 수량을 입력하세요.");
         return Integer.parseInt(scanner.nextLine());
     }
+
+    public static int inputPayment() {
+        System.out.println("## 신용 카드는 1번, 현금은 2번");
+        return Integer.parseInt(scanner.nextLine());
+    }
 }

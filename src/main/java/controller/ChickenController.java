@@ -57,5 +57,7 @@ public class ChickenController {
             throw new IllegalArgumentException("주문이 없는 테이블입니다.");
         }
         OutputView.printOrderHistory(table.getOrders());
+        OutputView.printTablePayment(table);
+
     }
 }

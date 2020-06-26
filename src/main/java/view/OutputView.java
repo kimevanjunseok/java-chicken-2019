@@ -71,4 +71,8 @@ public class OutputView {
             System.out.println(orders.getPrice(menu));
         }
     }
+
+    public static void printTablePayment(Table table) {
+        System.out.println("## " + table + "번 테이블의 결제를 진행합니다.");
+    }
 }
