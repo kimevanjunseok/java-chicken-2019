@@ -58,6 +58,6 @@ public class ChickenController {
         }
         OutputView.printOrderHistory(table.getOrders());
         OutputView.printTablePayment(table);
-
+        PaymentType paymentType = PaymentType.find(InputView.inputPayment());
     }
 }

@@ -12,4 +12,10 @@ public class PaymentTypeTest {
     void find(int number, PaymentType type) {
         assertThat(PaymentType.find(number)).isEqualTo(type);
     }
+
+    @ParameterizedTest
+    @CsvSource(value = {"CARD:10000", "CASH:9500"}, delimiter = ':')
+    void payment(PaymentType type, double finalAmount) {
+        assertThat(type.payment(10000)).isEqualTo(finalAmount);
+    }
 }
