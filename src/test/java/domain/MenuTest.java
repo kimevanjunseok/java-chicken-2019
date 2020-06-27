@@ -21,9 +21,4 @@ public class MenuTest {
     void isSameNumber(int number, boolean expect) {
         assertThat(menu.isSameNumber(number)).isEqualTo(expect);
     }
-
-    @Test
-    void calculatePrice() {
-        assertThat(menu.calculatePrice(2)).isEqualTo(32_000);
-    }
 }

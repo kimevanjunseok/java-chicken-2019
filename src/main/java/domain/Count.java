@@ -21,6 +21,10 @@ public class Count {
         count += menuCount;
     }
 
+    public int getCount() {
+        return count;
+    }
+
     @Override
     public String toString() {
         return Integer.toString(count);

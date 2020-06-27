@@ -19,12 +19,12 @@ public class Menu {
         return number == menuNumber;
     }
 
-    public int calculatePrice(int count) {
-        return price * count;
-    }
-
     public String getName() {
         return name;
+    }
+
+    public int getPrice() {
+        return price;
     }
 
     @Override
