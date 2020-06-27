@@ -2,6 +2,8 @@ package domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.HashMap;
 
@@ -36,6 +38,13 @@ public class OrdersTest {
         orders.add(menu, 3);
         Count count = orders.getCount(menu);
         assertThat(count.getCount()).isEqualTo(5);
+    }
+
+    @ParameterizedTest
+    @CsvSource(value = {"10:150000", "9:144000"}, delimiter = ':')
+    void totalPrice(int count, int price) {
+        orders.add(menu, count);
+        assertThat(orders.calculateTotalPrice()).isEqualTo(price);
     }
 
     @Test

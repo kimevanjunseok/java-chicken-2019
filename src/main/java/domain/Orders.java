@@ -4,6 +4,9 @@ import java.util.*;
 
 public class Orders {
 
+    private static final int DISCOUNT_UNIT = 10000;
+    private static final int COUNT_UNIT = 10;
+
     private Map<Menu, Count> orders;
 
     private Orders(Map<Menu, Count> orders) {
@@ -45,9 +48,21 @@ public class Orders {
     }
 
     public int calculateTotalPrice() {
-        return getMenus().stream()
+        int totalPrice = getMenus().stream()
                 .map(this::getPrice)
                 .reduce(Integer::sum)
-                .orElseThrow(() -> new IllegalArgumentException(""));
+                .orElse(0);
+
+        int discount = calculateDisCount();
+        return totalPrice - discount;
+    }
+
+    private int calculateDisCount() {
+        int chickenCount = getMenus().stream()
+                .filter(Menu::isChicken)
+                .map(menu -> getCount(menu).getCount())
+                .reduce(Integer::sum)
+                .orElse(0);
+        return (chickenCount / COUNT_UNIT) * DISCOUNT_UNIT;
     }
 }

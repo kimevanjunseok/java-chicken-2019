@@ -39,9 +39,10 @@ public class TableTest {
         assertThat(table.hasOrder()).isFalse();
     }
 
-    @Test
-    void calculate() {
-        table.addOrder(menu, 10);
-        assertThat(table.calculateTotalPrice()).isEqualTo(160_000);
+    @ParameterizedTest
+    @CsvSource(value = {"10:150000", "9:144000"}, delimiter = ':')
+    void calculate(int count, int price) {
+        table.addOrder(menu, count);
+        assertThat(table.calculateTotalPrice()).isEqualTo(price);
     }
 }

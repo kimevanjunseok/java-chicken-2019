@@ -19,6 +19,10 @@ public class Menu {
         return number == menuNumber;
     }
 
+    public boolean isChicken() {
+        return category == Category.CHICKEN;
+    }
+
     public String getName() {
         return name;
     }
