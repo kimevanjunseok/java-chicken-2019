@@ -10,11 +10,11 @@ public enum FunctionType {
 
     private final int number;
 
-    FunctionType(int number) {
+    FunctionType(final int number) {
         this.number = number;
     }
 
-    public static FunctionType find(int inputNumber) {
+    public static FunctionType find(final int inputNumber) {
         return Arrays.stream(FunctionType.values())
                 .filter(type -> type.number == inputNumber)
                 .findFirst()

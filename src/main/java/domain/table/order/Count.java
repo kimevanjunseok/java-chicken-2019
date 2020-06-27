@@ -6,15 +6,15 @@ public class Count {
 
     private int count;
 
-    private Count(int count) {
+    private Count(final int count) {
         this.count = count;
     }
 
-    public static Count from(int count) {
+    public static Count from(final int count) {
         return new Count(count);
     }
 
-    public void add(int menuCount) {
+    public void add(final int menuCount) {
         if (count + menuCount > MAXIMUM_COUNT) {
             throw new IllegalArgumentException("한 메뉴의 최대 수량은 99개 입니다.");
         }

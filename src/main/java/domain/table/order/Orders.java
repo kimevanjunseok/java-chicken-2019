@@ -9,7 +9,7 @@ public class Orders {
     private static final int DISCOUNT_UNIT = 10000;
     private static final int COUNT_UNIT = 10;
 
-    private Map<Menu, Count> orders;
+    private final Map<Menu, Count> orders;
 
     private Orders(Map<Menu, Count> orders) {
         Objects.requireNonNull(orders, "Orders에서 Null 발생!");
@@ -21,7 +21,7 @@ public class Orders {
     }
 
     public void reset() {
-        this.orders = new HashMap<>();
+        this.orders.clear();
     }
 
     public boolean hasOrder() {

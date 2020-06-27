@@ -10,19 +10,19 @@ public enum PaymentType {
     private final int payment;
     private final Function<Integer, Long> finalAmount;
 
-    PaymentType(int payment, Function<Integer, Long> finalAmount) {
+    PaymentType(final int payment, final Function<Integer, Long> finalAmount) {
         this.payment = payment;
         this.finalAmount = finalAmount;
     }
 
-    public static PaymentType find(int payment) {
+    public static PaymentType find(final int payment) {
         return Arrays.stream(PaymentType.values())
                 .filter(type -> type.payment == payment)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("원하는 결제 방식이 없습니다."));
     }
 
-    public long payment(int price) {
+    public long payment(final int price) {
         return finalAmount.apply(price);
     }
 }

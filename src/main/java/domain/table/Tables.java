@@ -8,12 +8,12 @@ public class Tables {
 
     private final List<Table> tables;
 
-    private Tables(List<Table> tables) {
+    private Tables(final List<Table> tables) {
         Objects.requireNonNull(tables, "Tables에서 Null 발생!");
         this.tables = new ArrayList<>(tables);
     }
 
-    public static Tables from(List<Table> tables) {
+    public static Tables from(final List<Table> tables) {
         return new Tables(tables);
     }
 
@@ -21,7 +21,7 @@ public class Tables {
         return tables;
     }
 
-    public Table findTableByNumber(int tableNumber) {
+    public Table findTableByNumber(final int tableNumber) {
         return tables.stream()
                 .filter(table -> table.isSameNumber(tableNumber))
                 .findFirst()

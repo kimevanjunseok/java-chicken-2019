@@ -54,7 +54,7 @@ public class OutputView {
         System.out.println();
     }
 
-    private static void printCheckOrder(Table table) {
+    private static void printCheckOrder(final Table table) {
         if (table.hasOrder()) {
             System.out.print(ORDER_BOTTOM_LINE);
             return;
@@ -62,7 +62,7 @@ public class OutputView {
         System.out.print(BOTTOM_LINE);
     }
 
-    public static void printOrderHistory(Orders orders) {
+    public static void printOrderHistory(final Orders orders) {
         System.out.println("## 주문 내역");
         System.out.println("메뉴 수량 금액");
         for (Menu menu : orders.getMenus()) {
@@ -72,11 +72,11 @@ public class OutputView {
         }
     }
 
-    public static void printTablePayment(Table table) {
+    public static void printTablePayment(final Table table) {
         System.out.println("## " + table + "번 테이블의 결제를 진행합니다.");
     }
 
-    public static void printFinalAmount(double payment) {
+    public static void printFinalAmount(final long payment) {
         System.out.println("## 최종 결제할 금액");
         System.out.println(payment + "원");
     }

@@ -9,12 +9,12 @@ public class Menus {
 
     private final List<Menu> menus;
 
-    private Menus(List<Menu> menus) {
+    private Menus(final List<Menu> menus) {
         Objects.requireNonNull(menus,"Menus에서 Null 발생!");
         this.menus = new ArrayList<>(menus);
     }
 
-    public static Menus from(List<Menu> menus) {
+    public static Menus from(final List<Menu> menus) {
         return new Menus(menus);
     }
 
@@ -22,7 +22,7 @@ public class Menus {
         return Collections.unmodifiableList(menus);
     }
 
-    public Menu findMenuByNumber(int menuNumber) {
+    public Menu findMenuByNumber(final int menuNumber) {
         return menus.stream()
                 .filter(menu -> menu.isSameNumber(menuNumber))
                 .findFirst()

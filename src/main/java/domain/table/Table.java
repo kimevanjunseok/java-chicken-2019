@@ -23,7 +23,7 @@ public class Table {
         return this.number == number;
     }
 
-    public void addOrder(Menu menu, int menuCount) {
+    public void addOrder(final Menu menu, final int menuCount) {
         orders.add(menu, menuCount);
     }
 

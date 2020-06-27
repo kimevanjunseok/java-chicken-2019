@@ -41,7 +41,7 @@ public class ChickenController {
         } while(functionType.isNotThree());
     }
 
-    private void function(FunctionType functionType, Tables tables, Menus menus) {
+    private void function(final FunctionType functionType,  final Tables tables, final Menus menus) {
         if (functionType == FunctionType.ONE) {
             addOrder(tables, menus);
         }
@@ -50,7 +50,7 @@ public class ChickenController {
         }
     }
 
-    private void addOrder(Tables tables, Menus menus) {
+    private void addOrder(final Tables tables, final Menus menus) {
         OutputView.printTables(tables.getTables());
         Table table = tables.findTableByNumber(InputView.inputTableNumber());
         OutputView.printMenus(menus.getMenus());
@@ -58,7 +58,7 @@ public class ChickenController {
         table.addOrder(menu, InputView.inputMenuCount());
     }
 
-    private void countOrder(Tables tables) {
+    private void countOrder(final Tables tables) {
         OutputView.printTables(tables.getTables());
         Table table = tables.findTableByNumber(InputView.inputTableNumber());
         if (!table.hasOrder()) {

@@ -15,7 +15,7 @@ public class Menu {
         this.price = price;
     }
 
-    public boolean isSameNumber(int menuNumber) {
+    public boolean isSameNumber(final int menuNumber) {
         return number == menuNumber;
     }
 
