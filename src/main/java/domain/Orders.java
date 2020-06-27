@@ -10,6 +10,7 @@ public class Orders {
     private Map<Menu, Count> orders;
 
     private Orders(Map<Menu, Count> orders) {
+        Objects.requireNonNull(orders, "Orders에서 Null 발생!");
         this.orders = new HashMap<>(orders);
     }
 

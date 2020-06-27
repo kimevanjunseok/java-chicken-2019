@@ -2,12 +2,14 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Tables {
 
     private final List<Table> tables;
 
     private Tables(List<Table> tables) {
+        Objects.requireNonNull(tables, "Tables에서 Null 발생!");
         this.tables = new ArrayList<>(tables);
     }
 

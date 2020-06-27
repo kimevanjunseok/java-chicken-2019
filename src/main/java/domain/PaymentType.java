@@ -19,7 +19,7 @@ public enum PaymentType {
         return Arrays.stream(PaymentType.values())
                 .filter(type -> type.payment == payment)
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException(""));
+                .orElseThrow(() -> new IllegalArgumentException("원하는 결제 방식이 없습니다."));
     }
 
     public long payment(int price) {
