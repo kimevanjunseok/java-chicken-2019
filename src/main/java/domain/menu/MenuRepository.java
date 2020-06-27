@@ -1,7 +1,5 @@
 package domain.menu;
 
-import domain.type.Category;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
