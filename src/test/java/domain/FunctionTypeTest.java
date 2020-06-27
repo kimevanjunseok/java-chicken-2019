@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class FunctionTypeTest {
     @ParameterizedTest
@@ -15,14 +16,16 @@ public class FunctionTypeTest {
     }
 
     @Test
-    void isNotThree_True() {
-        FunctionType functionType = FunctionType.find(2);
-        assertThat(functionType.isNotThree()).isTrue();
+    void find_Exception() {
+        assertThatThrownBy(() -> FunctionType.find(4))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("1 ~ 3사이의 숫자만 가능합니다.");
     }
 
-    @Test
-    void isNotThree_False() {
-        FunctionType functionType = FunctionType.find(3);
-        assertThat(functionType.isNotThree()).isFalse();
+    @ParameterizedTest
+    @CsvSource(value = {"1:true", "2:true", "3:false"}, delimiter = ':')
+    void isNotThree(int number, boolean expect) {
+        FunctionType functionType = FunctionType.find(number);
+        assertThat(functionType.isNotThree()).isEqualTo(expect);
     }
 }

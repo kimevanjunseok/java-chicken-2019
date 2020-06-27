@@ -18,12 +18,13 @@ public class CountTest {
     @Test
     void add_Exception() {
         assertThatThrownBy(() -> count.add(100))
-            .isInstanceOf(IllegalArgumentException.class);
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessage("한 메뉴의 최대 수량은 99개 입니다.");
     }
 
     @Test
     void add() {
         count.add(10);
-        assertThat(count.toString()).isEqualTo("10");
+        assertThat(count.getCount()).isEqualTo(10);
     }
 }
