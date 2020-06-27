@@ -1,6 +1,13 @@
 package controller;
 
-import domain.*;
+import domain.menu.Menu;
+import domain.menu.MenuRepository;
+import domain.menu.Menus;
+import domain.table.Table;
+import domain.table.TableRepository;
+import domain.table.Tables;
+import domain.type.FunctionType;
+import domain.type.PaymentType;
 import view.InputView;
 import view.OutputView;
 

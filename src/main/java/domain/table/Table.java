@@ -1,4 +1,7 @@
-package domain;
+package domain.table;
+
+import domain.menu.Menu;
+import domain.table.order.Orders;
 
 import java.util.HashMap;
 import java.util.Objects;

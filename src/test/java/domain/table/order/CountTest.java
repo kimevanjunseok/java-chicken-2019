@@ -1,4 +1,4 @@
-package domain;
+package domain.table.order;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

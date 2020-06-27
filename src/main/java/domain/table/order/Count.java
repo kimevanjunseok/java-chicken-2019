@@ -1,4 +1,4 @@
-package domain;
+package domain.table.order;
 
 public class Count {
 

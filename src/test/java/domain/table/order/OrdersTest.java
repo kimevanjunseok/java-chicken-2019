@@ -1,4 +1,7 @@
-package domain;
+package domain.table.order;
+
+import domain.menu.Menu;
+import domain.type.Category;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
