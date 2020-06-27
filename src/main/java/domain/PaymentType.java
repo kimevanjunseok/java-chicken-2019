@@ -4,13 +4,13 @@ import java.util.Arrays;
 import java.util.function.Function;
 
 public enum PaymentType {
-    CARD(1, Double::valueOf),
-    CASH(2, (price) -> price * 0.95);
+    CARD(1, Long::valueOf),
+    CASH(2, (price) -> Long.valueOf((price * 95) / 100));
 
     private final int payment;
-    private final Function<Integer, Double> finalAmount;
+    private final Function<Integer, Long> finalAmount;
 
-    PaymentType(int payment, Function<Integer, Double> finalAmount) {
+    PaymentType(int payment, Function<Integer, Long> finalAmount) {
         this.payment = payment;
         this.finalAmount = finalAmount;
     }
@@ -22,7 +22,7 @@ public enum PaymentType {
                 .orElseThrow(() -> new IllegalArgumentException(""));
     }
 
-    public double payment(int price) {
+    public long payment(int price) {
         return finalAmount.apply(price);
     }
 }
