@@ -38,4 +38,10 @@ public class TableTest {
 
         assertThat(table.hasOrder()).isFalse();
     }
+
+    @Test
+    void calculate() {
+        table.addOrder(menu, 10);
+        assertThat(table.calculateTotalPrice()).isEqualTo(160_000);
+    }
 }
