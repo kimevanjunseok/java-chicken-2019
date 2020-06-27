@@ -50,14 +50,15 @@ public class Orders {
         return menu.getPrice() * count.getCount();
     }
 
-    public int calculateTotalPrice() {
-        int totalPrice = getMenus().stream()
+    public int getTotalPriceWithDiscount() {
+        return calculateTotalPrice() - calculateDisCount();
+    }
+
+    private Integer calculateTotalPrice() {
+        return getMenus().stream()
                 .map(this::getPrice)
                 .reduce(Integer::sum)
                 .orElse(0);
-
-        int discount = calculateDisCount();
-        return totalPrice - discount;
     }
 
     private int calculateDisCount() {
