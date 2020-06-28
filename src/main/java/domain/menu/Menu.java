@@ -15,8 +15,8 @@ public class Menu {
         this.price = price;
     }
 
-    public boolean isSameNumber(final int menuNumber) {
-        return number == menuNumber;
+    public boolean isSameNumber(int menuNumber) {
+        return this.number == menuNumber;
     }
 
     public boolean isChicken() {
@@ -36,10 +36,7 @@ public class Menu {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Menu menu = (Menu) o;
-        return number == menu.number &&
-                price == menu.price &&
-                Objects.equals(name, menu.name) &&
-                category == menu.category;
+        return number == menu.number;
     }
 
     @Override
