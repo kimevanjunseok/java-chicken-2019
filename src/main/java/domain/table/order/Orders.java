@@ -41,19 +41,17 @@ public class Orders {
         return calculateTotalPrice() - calculateDisCount();
     }
 
-    private Integer calculateTotalPrice() {
+    private int calculateTotalPrice() {
         return getMenus().stream()
-                .map(this::getPrice)
-                .reduce(Integer::sum)
-                .orElse(0);
+                .mapToInt(Menu::getPrice)
+                .sum();
     }
 
     private int calculateDisCount() {
         int chickenCount = getMenus().stream()
                 .filter(Menu::isChicken)
-                .map(menu -> getCount(menu).getCount())
-                .reduce(Integer::sum)
-                .orElse(0);
+                .mapToInt(menu -> getCount(menu).getCount())
+                .sum();
         return (chickenCount / COUNT_UNIT) * DISCOUNT_UNIT;
     }
 
