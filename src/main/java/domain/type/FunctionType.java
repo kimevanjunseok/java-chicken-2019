@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public enum FunctionType {
 
-    ONE(1),
-    TWO(2),
-    THREE(3);
+    ORDER(1),
+    PAYMENT(2),
+    EXIT(3);
 
     private final int number;
 
@@ -22,6 +22,6 @@ public enum FunctionType {
     }
 
     public boolean isNotThree() {
-        return number != FunctionType.THREE.number;
+        return number != FunctionType.EXIT.number;
     }
 }

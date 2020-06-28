@@ -42,10 +42,10 @@ public class ChickenController {
     }
 
     private void function(final FunctionType functionType,  final Tables tables, final Menus menus) {
-        if (functionType == FunctionType.ONE) {
+        if (functionType == FunctionType.ORDER) {
             addOrder(tables, menus);
         }
-        if (functionType == FunctionType.TWO) {
+        if (functionType == FunctionType.PAYMENT) {
             countOrder(tables);
         }
     }
