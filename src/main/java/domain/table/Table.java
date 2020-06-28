@@ -32,7 +32,7 @@ public class Table {
     }
 
     public int calculateTotalPrice() {
-        return orders.getTotalPriceWithDiscount();
+        return orders.calculateTotalPriceWithDiscount();
     }
 
     public Orders getOrders() {

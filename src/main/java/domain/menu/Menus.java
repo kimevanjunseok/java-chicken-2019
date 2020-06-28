@@ -18,14 +18,14 @@ public class Menus {
         return new Menus(menus);
     }
 
-    public List<Menu> getMenus() {
-        return Collections.unmodifiableList(menus);
-    }
-
     public Menu findMenuByNumber(final int menuNumber) {
         return menus.stream()
                 .filter(menu -> menu.isSameNumber(menuNumber))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("없는 메뉴입니다."));
+    }
+
+    public List<Menu> getMenus() {
+        return Collections.unmodifiableList(menus);
     }
 }

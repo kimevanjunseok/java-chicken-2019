@@ -47,7 +47,7 @@ public class OrdersTest {
     @CsvSource(value = {"10:150000", "9:144000"}, delimiter = ':')
     void totalPrice(int count, int price) {
         orders.add(menu, count);
-        assertThat(orders.getTotalPriceWithDiscount()).isEqualTo(price);
+        assertThat(orders.calculateTotalPriceWithDiscount()).isEqualTo(price);
     }
 
     @Test

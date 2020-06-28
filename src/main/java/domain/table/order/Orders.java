@@ -37,20 +37,7 @@ public class Orders {
         orders.put(menu, Count.from(menuCount));
     }
 
-    public Set<Menu> getMenus() {
-        return Collections.unmodifiableSet(orders.keySet());
-    }
-
-    public Count getCount(Menu menu) {
-        return orders.get(menu);
-    }
-
-    public int getPrice(Menu menu) {
-        Count count = getCount(menu);
-        return menu.getPrice() * count.getCount();
-    }
-
-    public int getTotalPriceWithDiscount() {
+    public int calculateTotalPriceWithDiscount() {
         return calculateTotalPrice() - calculateDisCount();
     }
 
@@ -68,5 +55,18 @@ public class Orders {
                 .reduce(Integer::sum)
                 .orElse(0);
         return (chickenCount / COUNT_UNIT) * DISCOUNT_UNIT;
+    }
+
+    public Set<Menu> getMenus() {
+        return Collections.unmodifiableSet(orders.keySet());
+    }
+
+    public Count getCount(Menu menu) {
+        return orders.get(menu);
+    }
+
+    public int getPrice(Menu menu) {
+        Count count = getCount(menu);
+        return menu.getPrice() * count.getCount();
     }
 }

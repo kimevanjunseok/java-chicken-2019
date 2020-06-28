@@ -17,14 +17,14 @@ public class Tables {
         return new Tables(tables);
     }
 
-    public List<Table> getTables() {
-        return tables;
-    }
-
     public Table findTableByNumber(final int tableNumber) {
         return tables.stream()
                 .filter(table -> table.isSameNumber(tableNumber))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("없는 테이블 번호입니다."));
+    }
+
+    public List<Table> getTables() {
+        return tables;
     }
 }
