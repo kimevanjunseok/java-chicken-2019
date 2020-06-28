@@ -38,7 +38,7 @@ public class Orders {
     }
 
     public int calculateTotalPriceWithDiscount() {
-        return calculateTotalPrice() - calculateDisCount();
+        return calculateTotalPrice() - calculateDiscount();
     }
 
     private int calculateTotalPrice() {
@@ -47,7 +47,7 @@ public class Orders {
                 .sum();
     }
 
-    private int calculateDisCount() {
+    private int calculateDiscount() {
         int chickenCount = getMenus().stream()
                 .filter(Menu::isChicken)
                 .mapToInt(menu -> getCount(menu).getCount())
