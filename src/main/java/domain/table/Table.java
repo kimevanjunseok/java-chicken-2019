@@ -16,7 +16,7 @@ public class Table {
     }
 
     public void resetOrders() {
-        this.orders.reset();
+        orders.reset();
     }
 
     public boolean isSameNumber(int number) {

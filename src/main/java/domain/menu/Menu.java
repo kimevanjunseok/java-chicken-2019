@@ -16,7 +16,7 @@ public class Menu {
     }
 
     public boolean isSameNumber(int menuNumber) {
-        return this.number == menuNumber;
+        return number == menuNumber;
     }
 
     public boolean isChicken() {

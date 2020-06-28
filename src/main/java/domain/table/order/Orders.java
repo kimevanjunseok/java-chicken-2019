@@ -21,7 +21,7 @@ public class Orders {
     }
 
     public void reset() {
-        this.orders.clear();
+        orders.clear();
     }
 
     public boolean hasOrder() {
